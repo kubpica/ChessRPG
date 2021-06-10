@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6931706449760657329
+--- !u!1 &646781412306849415
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6931706449760657323}
-  - component: {fileID: 6931706449760657332}
-  - component: {fileID: 6931706449760657333}
-  - component: {fileID: 6931706449760657334}
-  - component: {fileID: 6931706449760657335}
-  - component: {fileID: 6931706449760657328}
+  - component: {fileID: 646781412306849421}
+  - component: {fileID: 646781412306849410}
+  - component: {fileID: 646781412306849411}
+  - component: {fileID: 646781412306849408}
+  - component: {fileID: 646781412306849409}
+  - component: {fileID: 646781412306849414}
   m_Layer: 0
-  m_Name: RedSoldier
+  m_Name: CyanSoldier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6931706449760657323
+--- !u!4 &646781412306849421
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6931706449760657329}
+  m_GameObject: {fileID: 646781412306849415}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.582403, y: 0, z: -1.62}
+  m_LocalPosition: {x: -17.582403, y: 0, z: -8.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6931706449760657332
+--- !u!33 &646781412306849410
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6931706449760657329}
+  m_GameObject: {fileID: 646781412306849415}
   m_Mesh: {fileID: 0}
---- !u!23 &6931706449760657333
+--- !u!23 &646781412306849411
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6931706449760657329}
+  m_GameObject: {fileID: 646781412306849415}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 280c702ed9a01be4abd0e947dfec3bfc, type: 2}
+  - {fileID: 2100000, guid: 2be9edb5f77bba8499aeb1c1e676af64, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,13 +84,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6931706449760657334
+--- !u!114 &646781412306849408
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6931706449760657329}
+  m_GameObject: {fileID: 646781412306849415}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
@@ -4105,13 +4105,13 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!64 &6931706449760657335
+--- !u!64 &646781412306849409
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6931706449760657329}
+  m_GameObject: {fileID: 646781412306849415}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -4119,13 +4119,13 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!114 &6931706449760657328
+--- !u!114 &646781412306849414
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6931706449760657329}
+  m_GameObject: {fileID: 646781412306849415}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d25d9d4aae975f49ac04efbdd4eb49b, type: 3}

@@ -8120,14 +8120,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c0c7745a2c81824fb137094a4c19b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whiteSoldier: {fileID: 1269903461104260140, guid: d3c25fbfea88aa2448d9e3ea16ab1db0,
+  greenSoldier: {fileID: 1540762788628158025, guid: d3c25fbfea88aa2448d9e3ea16ab1db0,
     type: 3}
-  whiteOfficer: {fileID: 6757481036258478453, guid: 429ac71f6f7d8c34296c92a706d1b692,
+  redSoldier: {fileID: 6931706449760657329, guid: fb3e2192d23f7074eb53c2fab9e9b38c,
     type: 3}
-  blackSoldier: {fileID: 7088132348951953554, guid: fb3e2192d23f7074eb53c2fab9e9b38c,
+  cyanSoldier: {fileID: 646781412306849415, guid: ab27eb9b67df9424cbb943a6b25eef7c,
     type: 3}
-  blackOfficer: {fileID: 1085968545432668962, guid: 3d52a0a831c94894e878dd768083b60b,
+  yellowSoldier: {fileID: 3205669873472899088, guid: 4b38e89196e8b46469362537e4ff2f2d,
     type: 3}
+  greenOfficer: {fileID: 6757481036258478453, guid: 429ac71f6f7d8c34296c92a706d1b692,
+    type: 3}
+  redOfficer: {fileID: 1085968545432668962, guid: 3d52a0a831c94894e878dd768083b60b,
+    type: 3}
+  building: {fileID: 7576607679828930591, guid: d84d41afe7b72884aab1eafb1b252b37,
+    type: 3}
+  chest: {fileID: 5776477340576771106, guid: 3d85a9f4d60628d499b73f1bebc3bbb1, type: 3}
+  sword: {fileID: 3722136235333830516, guid: 917e3731e72fada4d977a1d861288c85, type: 3}
+  potion: {fileID: 1086727862717185248, guid: 8eb0b7a2a4f44fb49898b3066c656c3e, type: 3}
 --- !u!114 &711401400
 MonoBehaviour:
   m_ObjectHideFlags: 0

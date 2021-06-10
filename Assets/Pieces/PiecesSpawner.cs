@@ -5,10 +5,16 @@ namespace ChessRPG
 {
     public class PiecesSpawner : MonoBehaviourSingleton<PiecesSpawner>
     {
-        public GameObject whiteSoldier;
-        public GameObject whiteOfficer;
-        public GameObject blackSoldier;
-        public GameObject blackOfficer;
+        public GameObject greenSoldier;
+        public GameObject redSoldier;
+        public GameObject cyanSoldier;
+        public GameObject yellowSoldier;
+        public GameObject greenOfficer;
+        public GameObject redOfficer;
+        public GameObject building;
+        public GameObject chest;
+        public GameObject sword;
+        public GameObject potion;
 
         [GlobalComponent] private Board board;
 
@@ -59,18 +65,36 @@ namespace ChessRPG
             Piece piece;
             switch (p)
             {
-                case 'w':
-                    piece = Instantiate(whiteSoldier).GetComponent<Piece>();
+                case 'g':
+                    piece = Instantiate(greenSoldier).GetComponent<Piece>();
                     //piece.transform.eulerAngles = new Vector3(0, 180, 0);
                     break;
-                case 'W':
-                    piece = Instantiate(whiteOfficer).GetComponent<Piece>();
+                case 'G':
+                    piece = Instantiate(greenOfficer).GetComponent<Piece>();
                     break;
-                case 'b':
-                    piece = Instantiate(blackSoldier).GetComponent<Piece>();
+                case 'r':
+                    piece = Instantiate(redSoldier).GetComponent<Piece>();
+                    break;
+                case 'R':
+                    piece = Instantiate(redOfficer).GetComponent<Piece>();
+                    break;
+                case 'c':
+                    piece = Instantiate(cyanSoldier).GetComponent<Piece>();
+                    break;
+                case 'y':
+                    piece = Instantiate(yellowSoldier).GetComponent<Piece>();
                     break;
                 case 'B':
-                    piece = Instantiate(blackOfficer).GetComponent<Piece>();
+                    piece = Instantiate(building).GetComponent<Piece>();
+                    break;
+                case 'h':
+                    piece = Instantiate(chest).GetComponent<Piece>();
+                    break;
+                case 's':
+                    piece = Instantiate(sword).GetComponent<Piece>();
+                    break;
+                case 'p':
+                    piece = Instantiate(potion).GetComponent<Piece>();
                     break;
                 default:
                     Debug.LogError("Piece '" + p + "' not found.");

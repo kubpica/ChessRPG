@@ -41,7 +41,7 @@ namespace ChessRPG
         private LinkedListNode<Piece> splitPiece;
         private bool splitFromBottom;
 
-        private string pieceToSpawn = "w";
+        private string pieceToSpawn = "g";
         
         private void Start()
         {
@@ -284,7 +284,7 @@ namespace ChessRPG
             split();
             board.UnmarkAll();
             displayedMsg = _selectedColumn.Commander.Mianownik + " z " + _selectedColumn.Position 
-                + " wskakuje na " + targetColumn.Commander.Biernik + " na " + targetColumn.Position;
+                + " wskakuje na " + targetColumn.Commander.Biernik + " na " + targetColumn.Position + "\n";
             onMoveStarted.Invoke(_selectedColumn.Position + "-" + targetColumn.Position);
             inputLocked = true;
 
@@ -503,7 +503,7 @@ namespace ChessRPG
                             board.UnmarkAll();
                             inputLocked = true;
                             onMoveStarted.Invoke(_selectedColumn.Position + "-" + column.Position + "-" + _selectedColumn.Position);
-                            displayedMsg = _selectedColumn.Commander.Mianownik + " z " + _selectedColumn.Position + " pochłania " + column.Commander.Biernik + " z " + column.Position; 
+                            displayedMsg = _selectedColumn.Commander.Mianownik + " z " + _selectedColumn.Position + " pochłania " + column.Commander.Biernik + " z " + column.Position + "\n"; 
                             StartCoroutine(animateTake(new List<Piece> { column.Commander }));
                         }
                         else
@@ -516,13 +516,14 @@ namespace ChessRPG
                             board.UnmarkAll();
                             inputLocked = true;
                             onMoveStarted.Invoke(column.Position + "-" + _selectedColumn.Position + "-" + column.Position);
-                            displayedMsg = column.Commander.Mianownik + " z " + column.Position + " pochłania " + _selectedColumn.Commander.Biernik + " z " + _selectedColumn.Position;
+                            displayedMsg = column.Commander.Mianownik + " z " + column.Position + " pochłania " + _selectedColumn.Commander.Biernik + " z " + _selectedColumn.Position + "\n";
                             StartCoroutine(animateTake(_selectedColumn, column));
                         }
                     }
                     else
                     {
-                        //TODO Open column manager
+                        // Delete clicked column
+                        Destroy(column.gameObject);
                     }
                     break;
                 case 3: // 4th mouse button
@@ -632,24 +633,52 @@ namespace ChessRPG
         private void OnGUI()
         {
             GUI.Label(new Rect(10, 10, 200, 20), "ChessRPG", guiStyle);
-            if (displayedMsg != null)
-            {
-                var msg = displayedMsg;
 
-                DrawOutline(new Rect(10, 30, 1900, 1000), msg, guiStyle, Color.black, guiStyle.normal.textColor);
+            string msg = "";
+            if (displayedMsg != null)
+                msg += displayedMsg;
+
+            msg += "\n WASD(QERF) + Mouse2 = Poruszanie kamerą\n Shift = Przyśpieszenie poruszania\n Spacja = Obrót wokół wskazanej monety\n";
+
+            if (_selectedColumn == null)
+            {
+                msg += "\n Bierka do postawienia: " + pieceToSpawn + "\n 1 = Zielony gracz (g)\n 2 = Cyanowy gracz (c)\n 3 = Żółty gracz (y)\n 4 = Czerwony gracz (r)\n 5 = Przyjazny NPC (G)\n 6 = Wrogi NPC (R)\n 7 = Budynek (B)\n 8 = Skrzynia (h)\n 9 = Miecz (s)\n 0 = Mikstura (p)\n";
+                msg += " Mouse1 = Zaznacz kolumnę\n Mouse3 = Postaw bierkę lub usuń kolumnę\n Mouse4 = Zaznacz ostatnią bierkę w kolumnie\n Mouse5 = Zaznacz pierwszą bierkę w kolumnie\n";
             }
+            else
+            {
+                msg += "\n Mouse1 = Przenieś zaznaczoną kolumnę\n Mouse4 = Przenieś tylko ostatnią bierkę w kolumnie\n Mouse5 = Przenieś tylko pierwszą bierkę w kolumnie\n";
+                if (splitPiece == null)
+                    msg += " Mouse3+PustePole = Przenieś całą kolumne oprócz ostatniej bierki\n Mouse3+Kolumna = Pochłoń pierwszą bierkę z innej kolumny\n";
+                else
+                    msg += " Mouse3 = Przenieś zaznaczone bierki pod wybraną kolumnę\n";
+            }
+            
+            DrawOutline(new Rect(10, 30, 1900, 1000), msg, guiStyle, Color.black, guiStyle.normal.textColor);
         }
 
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
-                pieceToSpawn = "w";
+                pieceToSpawn = "g";
             else if (Input.GetKeyDown(KeyCode.Alpha2))
-                pieceToSpawn = "W";
+                pieceToSpawn = "c";
             else if (Input.GetKeyDown(KeyCode.Alpha3))
-                pieceToSpawn = "b";
+                pieceToSpawn = "y";
             else if (Input.GetKeyDown(KeyCode.Alpha4))
+                pieceToSpawn = "r";
+            else if (Input.GetKeyDown(KeyCode.Alpha5))
+                pieceToSpawn = "G";
+            else if (Input.GetKeyDown(KeyCode.Alpha6))
+                pieceToSpawn = "R";
+            else if (Input.GetKeyDown(KeyCode.Alpha7))
                 pieceToSpawn = "B";
+            else if (Input.GetKeyDown(KeyCode.Alpha8))
+                pieceToSpawn = "h";
+            else if (Input.GetKeyDown(KeyCode.Alpha9))
+                pieceToSpawn = "s";
+            else if (Input.GetKeyDown(KeyCode.Alpha0))
+                pieceToSpawn = "p";
 
             if (inputLocked)
                 return;
@@ -676,7 +705,7 @@ namespace ChessRPG
 
                 if (clicked != null && clicked.transform.parent != null)
                 {
-                    if (clicked.gameObject.tag == "Board")
+                    if (clicked.gameObject.CompareTag("Board"))
                     {
                         var square = clicked.GetComponent<Square>();
                         if (square != null)
