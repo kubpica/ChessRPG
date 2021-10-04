@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/_preload.unity
     guid: 20734c8f39c64244facd2bf0793eaedc
   - enabled: 1
-    path: Assets/Scenes/Piniondz.unity
-    guid: f0724fd5452778e47921c2dd100bcde5
+    path: Assets/Scenes/4PlayerChessBoard.unity
+    guid: e3855d325776dde4e8cc2ed8f30bfbe4
   m_configObjects: {}
